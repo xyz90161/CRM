@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="UBL_ROOT" nillable="true">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="entityInfo"/>
+				<xs:element ref="chargeFinancialInfo"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="entityInfo" nillable="true">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="entityType" type="etype" nillable="true"/>
+				<xs:element name="entityId" type="xs:long" nillable="true"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="chargeFinancialInfo" nillable="true">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="amount" type="xs:double" nillable="true">
+					<xs:annotation>
+						<xs:documentation>本次帳單更正金額</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="etype">
+		<xs:annotation>
+			<xs:documentation>valid values are: ACCT_ID=A,  CI_SEQ=C</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="1"/>
+			<xs:enumeration value="A"/>
+			<xs:enumeration value="C"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 rel. 2 (x64) (http://www.altova.com) by danlin (foya) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="validDuration">
+		<xs:annotation>
+			<xs:documentation>日期相關欄位</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="effDate" type="xs:dateTime"/>
+			<xs:element name="endDate" type="xs:dateTime" nillable="true" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="activityInfo">
+		<xs:annotation>
+			<xs:documentation>原因相關欄位</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="activityReason" type="xs:string" nillable="true"/>
+			<xs:element name="userText" nillable="true" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="syncOfferInfo">
+		<xs:sequence>
+			<xs:element name="preOfferSeq" type="xs:long"/>
+			<xs:element name="deployment"/>
+			<xs:element name="entityType" type="xs:string"/>
+			<xs:element name="entityId" type="xs:long"/>
+			<xs:element name="overWrite" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="offerInfo">
+		<xs:annotation>
+			<xs:documentation>OU/subscriber Offer檔欄位</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="l9Item" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="500"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="origEffDate" type="xs:dateTime" nillable="true"/>
+			<xs:element name="futureEndDate" type="xs:dateTime" nillable="true"/>
+			<xs:element name="offerId" type="xs:long"/>
+			<xs:element name="offerInstanceId" type="xs:long" nillable="true" minOccurs="0"/>
+			<xs:element name="validDuration" type="validDuration"/>
+			<xs:element name="offerSeq" type="xs:long" nillable="true" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="authInfo">
+		<xs:annotation>
+			<xs:documentation>每個Table 都應有的固位欄位</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="bpid" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="channel" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="apUser" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="transApUser" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="transChannelId" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="accountIdInfo">
+		<xs:annotation>
+			<xs:documentation>account Id 主要ID 資料</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="accountId" type="xs:long" nillable="true"/>
+			<xs:element name="externalId" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="beId" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="15"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ouIdInfo">
+		<xs:annotation>
+			<xs:documentation>ou 主要ID 資料</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ouId" type="xs:long"/>
+			<xs:element name="parentOuId" type="xs:long" minOccurs="0"/>
+			<xs:element name="beId" type="xs:long" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="offerParam">
+		<xs:annotation>
+			<xs:documentation>OFFER_PARAMETER欄位</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="offerSeq" type="xs:long" nillable="true" minOccurs="0"/>
+			<xs:element name="paramName" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="paramValues" nillable="true" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="paramValue" type="xs:string" nillable="true"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="offerInstanceId" type="xs:long" nillable="true" minOccurs="0"/>
+			<xs:element name="validDuration" type="validDuration"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="CM_INPUT">
+		<xs:annotation>
+			<xs:documentation>CM_Root </xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="changeOuInfo">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ouIdInfo" type="ouIdInfo"/>
+							<xs:element name="accountIdInfo" type="accountIdInfo"/>
+							<xs:element name="addOfferInfoList" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="offerInfo" type="offerInfo" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="removeOfferInfoList" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="offerInfo" type="offerInfo" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="offerParamLiist" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="offerParam" type="offerParam" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="activityInfo" type="activityInfo"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="authInfo" type="authInfo"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

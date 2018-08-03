@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 rel. 2 (http://www.altova.com) by Kimi (foya) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="authInfo">
+		<xs:annotation>
+			<xs:documentation>每個Table 都應有的固位欄位</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="bpid" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="channel" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="apUser" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="transApUser" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="transChannelId" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="paginationiInfo">
+		<xs:sequence>
+			<xs:element name="pageSize" type="xs:int"/>
+			<xs:element name="pageNumber" type="xs:int"/>
+			<xs:element name="totalOfRows" type="xs:int"/>
+			<xs:element name="totalOfPages" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="CM_INPUT">
+		<xs:annotation>
+			<xs:documentation>CM_Root </xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="queryMapCodeConditions">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ocId" type="xs:long"/>
+							<xs:element name="changeCode" type="xs:string"/>
+							<xs:element name="beId" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="paginationiInfo" type="paginationiInfo"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 rel. 2 (http://www.altova.com) by Kimi (foya) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="msgInfo">
+		<xs:annotation>
+			<xs:documentation>錯誤碼</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="errCde" type="xs:string" nillable="true"/>
+			<xs:element name="errMsg" type="xs:string" nillable="true"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ouIdInfo">
+		<xs:annotation>
+			<xs:documentation>ou 主要ID 資料</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ouId" type="xs:long"/>
+			<xs:element name="parentOuId" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="18"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="beId" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="15"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="CM_OUTPUT">
+		<xs:annotation>
+			<xs:documentation>CM_Root </xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="msgInfo" type="msgInfo"/>
+				<xs:element name="ouIdInfo" type="ouIdInfo"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

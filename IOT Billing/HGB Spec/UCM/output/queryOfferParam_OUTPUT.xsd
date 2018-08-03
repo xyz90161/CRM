@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 rel. 2 (http://www.altova.com) by Kimi (foya) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="msgInfo">
+		<xs:annotation>
+			<xs:documentation>錯誤碼</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="errCde" type="xs:string" nillable="true"/>
+			<xs:element name="errMsg" type="xs:string" nillable="true"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="validDuration">
+		<xs:annotation>
+			<xs:documentation>日期相關欄位</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="effDate" type="xs:dateTime"/>
+			<xs:element name="endDate" type="xs:dateTime" nillable="true" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="offerParam">
+		<xs:annotation>
+			<xs:documentation>OFFER_PARAMETER欄位</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="offerSeq" type="xs:long" nillable="true"/>
+			<xs:element name="paramName" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="paramValue" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="4000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="offerInstanceId" type="xs:long"/>
+			<xs:element name="validDuration" type="validDuration"/>
+			<xs:element name="syncOfferInfo" type="syncOfferInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="syncOfferInfo">
+		<xs:sequence>
+			<xs:element name="preOfferSeq" type="xs:long"/>
+			<xs:element name="deployment"/>
+			<xs:element name="entityType" type="xs:string"/>
+			<xs:element name="entityId" type="xs:long"/>
+			<xs:element name="overWrite" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="CM_OUTPUT">
+		<xs:annotation>
+			<xs:documentation>CM_Root </xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="msgInfo" type="msgInfo"/>
+				<xs:element name="offerParamInfoList" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="offerParam" type="offerParam" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

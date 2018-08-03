@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 rel. 2 (x64) (http://www.altova.com) by zona (foya) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="RAT_ROOT" nillable="true">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="msgInfo"/>
+				<xs:element ref="summaryInfo"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="msgInfo" nillable="true">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="errCde" type="xs:string" nillable="true"/>
+				<xs:element name="errMsg" type="xs:string" nillable="true"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="summaryInfo" nillable="true">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="chargeCode" type="xs:string" nillable="true"/>
+				<xs:element name="orgAmt" type="xs:double" nillable="true"/>
+				<xs:element name="chrgAmt" type="xs:double" nillable="true"/>
+				<xs:element name="qty" type="xs:int" nillable="true"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

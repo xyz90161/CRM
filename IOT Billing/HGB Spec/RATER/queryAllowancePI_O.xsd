@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 rel. 2 (x64) (http://www.altova.com) by zona (foya) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="RAT_ROOT" nillable="true">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="msgInfo"/>
+				<xs:element ref="pkgDtlInfo"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="msgInfo" nillable="true">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="errCde" type="xs:string" nillable="true"/>
+				<xs:element name="errMsg" type="xs:string" nillable="true"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="pkgDtlInfo" nillable="true">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="acctId" type="xs:long" nillable="true"/>
+				<xs:element name="offerLevelId" type="xs:long" nillable="true"/>
+				<xs:element name="offerId" type="xs:long" nillable="true"/>
+				<xs:element name="pkgId" type="xs:long" nillable="true"/>
+				<xs:element name="acctPkgSeq" type="xs:long" nillable="true"/>
+				<xs:element name="curQty" type="xs:int" nillable="true"/>
+				<xs:element name="useQty" type="xs:int" nillable="true"/>
+				<xs:element name="balQty" type="xs:int" nillable="true"/>
+				<xs:element name="discAmt" type="xs:int" nillable="true"/>
+				<xs:element name="prevQty" type="xs:int" nillable="true"/>
+				<xs:element name="nbrCount" type="xs:int" nillable="true"/>
+				<xs:element name="validPeriod" type="xs:int" nillable="true"/>
+				<xs:element name="disTypeDtl" type="xs:string" nillable="true"/>
+				<xs:element name="offerName" type="xs:string" nillable="true"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

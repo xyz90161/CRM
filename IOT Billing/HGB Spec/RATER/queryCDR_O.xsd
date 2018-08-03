@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 rel. 2 (x64) (http://www.altova.com) by zona (foya) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="RAT_ROOT" nillable="true">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="msgInfo"/>
+				<xs:element ref="cdrInfo"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="cdrInfo" nillable="true">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="resourceValue" type="resourceST" nillable="true"/>
+				<xs:element name="subscrId" type="xs:string" nillable="true"/>
+				<xs:element name="bParty"/>
+				<xs:element name="eventType" type="eventTypeST" nillable="true"/>
+				<xs:element name="startTime" type="xs:date" nillable="true"/>
+				<xs:element name="serviceFilter" type="xs:string" nillable="true"/>
+				<xs:element name="chargeCode" type="xs:string" nillable="true"/>
+				<xs:element name="orgAmt" type="xs:double" nillable="true"/>
+				<xs:element name="chrgAmt" type="xs:double" nillable="true"/>
+				<xs:element name="qty" type="xs:int" nillable="true"/>
+				<xs:element name="offerId" type="xs:long" nillable="true"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="msgInfo" nillable="true">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="errCde" type="xs:string" nillable="true"/>
+				<xs:element name="errMsg" type="xs:string" nillable="true"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="eventTypeST">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="7"/>
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="SMS"/>
+			<xs:enumeration value="DATA"/>
+			<xs:enumeration value="CONTENT"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="resourceST">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="6"/>
+			<xs:enumeration value="IMSI"/>
+			<xs:enumeration value="MSISDN"/>
+			<xs:enumeration value="EID"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

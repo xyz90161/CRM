@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="UBL_ROOT" nillable="true">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="entityInfo"/>
+				<xs:element ref="createChargeInfo"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="entityInfo" nillable="true">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="entityType" type="etype" nillable="true"/>
+				<xs:element name="entityId" type="xs:long" nillable="true"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="createChargeInfo" nillable="true">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="acctId" type="xs:long" nillable="true"/>
+				<xs:element name="chargeCode" type="xs:string" nillable="true"/>
+				<xs:element name="serviceReciverType" type="xs:string" nillable="true">
+					<xs:annotation>
+						<xs:documentation>費用歸屬階層(S/A/U)</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="serviceReciverId" type="xs:long" nillable="true"/>
+				<xs:element name="custId" type="xs:long" nillable="true"/>
+				<xs:element name="baId" type="xs:long" nillable="true"/>
+				<xs:element name="offerId" type="xs:long" nillable="true"/>
+				<xs:element name="chrgId" type="xs:long" nillable="true"/>
+				<xs:element name="offerInstanceId" type="xs:long" nillable="true"/>
+				<xs:element name="chrgDate" type="xs:date" nillable="true"/>
+				<xs:element name="amount" type="xs:double" nillable="true"/>
+				<xs:element name="chargeType" type="xs:string" nillable="true"/>
+				<xs:element name="source" type="xs:string" nillable="true"/>
+				<xs:element ref="attributeInfo" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="attributeInfo" nillable="true">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="attributeName" type="xs:string" nillable="true">
+					<xs:annotation>
+						<xs:documentation>屬性名稱</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="value" type="xs:string" nillable="true">
+					<xs:annotation>
+						<xs:documentation>值</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="etype">
+		<xs:annotation>
+			<xs:documentation>valid values are: ACCT_ID=A,  CI_SEQ=C</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="1"/>
+			<xs:enumeration value="A"/>
+			<xs:enumeration value="C"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

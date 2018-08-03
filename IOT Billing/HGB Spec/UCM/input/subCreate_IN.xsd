@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 rel. 2 (x64) (http://www.altova.com) by danlin (foya) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:simpleType name="spLinkType">
+		<xs:annotation>
+			<xs:documentation>profile linkType(A/O/S/D)
+A - Account
+O - other
+B - BEN
+S - subscriber
+D-additional</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="10"/>
+			<xs:enumeration value="A"/>
+			<xs:enumeration value="O"/>
+			<xs:enumeration value="B"/>
+			<xs:enumeration value="S"/>
+			<xs:enumeration value="D"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="profileInfo">
+		<xs:annotation>
+			<xs:documentation>profileInfo資訊</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="linkType" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="spLinkType">
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="effDate" type="xs:dateTime" nillable="true"/>
+			<xs:element name="elem1" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="500"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="elem2" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="500"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="elem3" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="500"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="elem4" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="500"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="elem5" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="500"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="elem6" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="500"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="elem7" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="500"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="elem8" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="500"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="elem9" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="500"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="elem10" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="500"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="elem11" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="500"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="elem12" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="500"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="elem13" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="500"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="elem14" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="500"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="elem15" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="500"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="elem16" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="500"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="elem17" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="500"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="elem18" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="500"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="elem19" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="500"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="elem20" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="500"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="validDuration">
+		<xs:annotation>
+			<xs:documentation>日期相關欄位</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="effDate" type="xs:dateTime"/>
+			<xs:element name="endDate" type="xs:dateTime" nillable="true" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="activityDateInfo">
+		<xs:annotation>
+			<xs:documentation>日期相關欄位-即effData</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="effDate" type="xs:dateTime" nillable="true"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="activityInfo">
+		<xs:annotation>
+			<xs:documentation>原因相關欄位</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="activityReason" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="userText" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="500"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="resourceParam">
+		<xs:annotation>
+			<xs:documentation>Resource Parameter Name欄位</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="offerSeq" type="xs:long" nillable="true" minOccurs="0"/>
+			<xs:element name="resourcePrmCd" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="resourceValue" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="4000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="resType" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="5"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="validDuration" type="validDuration"/>
+			<xs:element name="offerInstanceId" type="xs:long" nillable="true" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="offerInfo">
+		<xs:annotation>
+			<xs:documentation>OU/subscriber Offer檔欄位</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="l9Item" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="500"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="origEffDate" type="xs:dateTime" nillable="true"/>
+			<xs:element name="futureEndDate" type="xs:dateTime" nillable="true"/>
+			<xs:element name="offerId" type="xs:long"/>
+			<xs:element name="offerInstanceId" type="xs:long" nillable="true" minOccurs="0"/>
+			<xs:element name="validDuration" type="validDuration"/>
+			<xs:element name="offerSeq" type="xs:long" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="accountIdInfo">
+		<xs:annotation>
+			<xs:documentation>account Id 主要ID 資料</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="accountId" type="xs:long" nillable="true"/>
+			<xs:element name="externalId" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="beId" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="15"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="authInfo">
+		<xs:annotation>
+			<xs:documentation>每個Table 都應有的固位欄位</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="bpid" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="channel" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="apUser" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="transApUser" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="transChannelId" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="customerIdInfo">
+		<xs:annotation>
+			<xs:documentation>customerId 主要ID 資料</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="customerId" type="xs:long" nillable="true"/>
+			<xs:element name="externalId" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="beId" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="15"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="subscriberIdInfo">
+		<xs:annotation>
+			<xs:documentation>subscriber Id 主要ID 資料</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="subscriberId" type="xs:long" nillable="true"/>
+			<xs:element name="externalId" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="beId" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="15"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ouIdInfo">
+		<xs:annotation>
+			<xs:documentation>ou 主要ID 資料</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ouId" type="xs:long"/>
+			<xs:element name="parentOuId" type="xs:long" minOccurs="0"/>
+			<xs:element name="beId" type="xs:long" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="syncOfferInfo">
+		<xs:sequence>
+			<xs:element name="preOfferSeq" type="xs:long"/>
+			<xs:element name="deployment"/>
+			<xs:element name="entityType" type="xs:string"/>
+			<xs:element name="entityId" type="xs:long"/>
+			<xs:element name="overWrite" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="deviceParam">
+		<xs:sequence>
+			<xs:element name="primDeviceType" type="xs:long"/>
+			<xs:element name="primDeviceId" type="xs:long"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="updateInfo">
+		<xs:sequence>
+			<xs:element name="updateDate" type="xs:dateTime"/>
+			<xs:element name="updateUser" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="subscriberInfo">
+		<xs:annotation>
+			<xs:documentation>用戶主要資訊</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="subscrType" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="15"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="pymCategory" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="appDate" type="xs:dateTime" nillable="true"/>
+			<xs:element name="l9Item" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="200"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="subscriberIdInfo" type="subscriberIdInfo"/>
+			<xs:element name="customerIdInfo" type="customerIdInfo"/>
+			<xs:element name="sourceSubscriberIdInfo" type="subscriberIdInfo"/>
+			<xs:element name="ouIdInfo" type="ouIdInfo"/>
+			<xs:element name="accountIdInfo" type="accountIdInfo"/>
+			<xs:element name="deviceParam" type="deviceParam"/>
+			<xs:element name="resourceParam" type="resourceParam"/>
+			<xs:element name="activityInfo" type="activityInfo"/>
+			<xs:element name="validDuration" type="validDuration"/>
+			<xs:element name="activityDateInfo" type="activityDateInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="subsceiberStatusInfo">
+		<xs:sequence>
+			<xs:element name="status">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="statusDate" type="xs:dateTime"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="offerIdInfo">
+		<xs:sequence>
+			<xs:element name="offerSeq" type="xs:long" nillable="true" minOccurs="0"/>
+			<xs:element name="offerInstanceId" type="xs:long" nillable="true" minOccurs="0"/>
+			<xs:element name="offerId" type="xs:long"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="createSubscriberInfo">
+		<xs:sequence>
+			<xs:element name="profileNameInfo" type="profileInfo"/>
+			<xs:element name="profileAddrInfo" type="profileInfo"/>
+			<xs:element name="subscriberInfo" type="subscriberInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="offerParam">
+		<xs:annotation>
+			<xs:documentation>OFFER_PARAMETER欄位</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="offerSeq" type="xs:long" nillable="true" minOccurs="0"/>
+			<xs:element name="paramName" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="paramValues" nillable="true" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="paramValue" type="xs:string" nillable="true"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="offerInstanceId" type="xs:long" nillable="true" minOccurs="0"/>
+			<xs:element name="validDuration" type="validDuration"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="attributeParamInfo">
+		<xs:annotation>
+			<xs:documentation>AttributeParam資訊</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="attributeName" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="attributeValues" nillable="true" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="attributeValue" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="CM_INPUT">
+		<xs:annotation>
+			<xs:documentation>CM_Root </xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="createSubscriberInfo">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="subscriberInfo" type="subscriberInfo"/>
+							<xs:element name="addOfferInfoList" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="offerInfo" type="offerInfo" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="offerParam" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="offerParam" type="offerParam" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="resourceParam" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="resourceParam" type="resourceParam"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="profileNameInfo" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="profileNameInfo" type="profileInfo"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="profileAddrInfo" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="profileAddrInfo" type="profileInfo" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="attributeParamInfo" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="attributeParamInfo" type="attributeParamInfo" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="authInfo" type="authInfo"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

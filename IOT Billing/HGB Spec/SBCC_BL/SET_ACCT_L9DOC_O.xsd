@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="UBL_ROOT" nillable="true">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="msgInfo"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="msgInfo" nillable="true">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="errCde" type="xs:string" nillable="true">
+					<xs:annotation>
+						<xs:documentation>錯誤碼: 0000(成功)</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="errMsg" nillable="true" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>錯誤訊息</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

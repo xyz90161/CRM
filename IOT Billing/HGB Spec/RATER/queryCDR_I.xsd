@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 rel. 2 (x64) (http://www.altova.com) by zona (foya) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="RAT_ROOT" nillable="true">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="queryInfo"/>
+				<xs:element ref="dateRange" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="queryInfo" nillable="true">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="acctId" type="xs:long" nillable="true"/>
+				<xs:element name="subscrId" type="xs:long" nillable="true"/>
+				<xs:element name="cycle" type="xs:string" nillable="true"/>
+				<xs:element name="billPeriod" type="xs:string" nillable="true"/>
+				<xs:element name="eventType" type="eventTypeST" nillable="true"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="dateRange" nillable="true">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="startDateTime" type="xs:date" nillable="true"/>
+				<xs:element name="endDateTime" type="xs:date" nillable="true"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="eventTypeST">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="7"/>
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="SMS"/>
+			<xs:enumeration value="DATA"/>
+			<xs:enumeration value="CONTENT"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

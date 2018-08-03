@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 rel. 2 (http://www.altova.com) by Kimi (foya) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="msgInfo">
+		<xs:annotation>
+			<xs:documentation>錯誤碼</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="errCde" type="xs:string" nillable="true"/>
+			<xs:element name="errMsg" type="xs:string" nillable="true"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="rsnCodeInfo">
+		<xs:sequence>
+			<xs:element name="updateDate" type="xs:dateTime" nillable="true"/>
+			<xs:element name="updateUser" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="customerType" type="xs:long" nillable="true"/>
+			<xs:element name="custtpDesc" type="xs:long"/>
+			<xs:element name="pymCategory" type="xs:string"/>
+			<xs:element name="defPymMtd" type="xs:string"/>
+			<xs:element name="defPymTp" type="xs:string"/>
+			<xs:element name="billDefDueDays" type="xs:string"/>
+			<xs:element name="difitSubType" type="xs:string"/>
+			<xs:element name="beId" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="CM_OUTPUT">
+		<xs:annotation>
+			<xs:documentation>CM_Root </xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="msgInfo" type="msgInfo"/>
+				<xs:element name="rsnCodeInfoList" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="rsnCodeInfo" type="rsnCodeInfo" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
