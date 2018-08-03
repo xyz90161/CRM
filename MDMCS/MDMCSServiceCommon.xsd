@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns="http://services.mdm.cs.com/wsdl/schema" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:schema="http://services.mdm.cs.com/party/schema" targetNamespace="http://services.mdm.cs.com/wsdl/schema"
+	elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xsd:element name="authInfo" type="AuthInfo" />
+	<xsd:element name="transInfo" type="TransactionInfo" />
+	<xsd:complexType name="AuthInfo">
+		<xsd:all>
+			<xsd:element ref="channelID" minOccurs="0" />
+			<xsd:element ref="userID" />
+			<xsd:element ref="password" />
+		</xsd:all>
+	</xsd:complexType>
+	<xsd:element name="channelID" type="xsd:string" />
+	<xsd:element name="userID" type="xsd:string" />
+	<xsd:element name="password" type="xsd:string" />
+	<xsd:complexType name="TransactionInfo">
+		<xsd:sequence>
+			<xsd:element name="transChannelId">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="16" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="transSubChannel" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="transUserId">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="32" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="transBpId">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="36" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="transPath">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="256" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="RequestControl">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="requestID" />
+				<xsd:element ref="DWLControl" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="requestID" type="xsd:integer" />
+	<xsd:element name="InquiryParam">
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element ref="tcrmParam" minOccurs="0" maxOccurs="unbounded" />
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="tcrmParam">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute name="name" type="xsd:string" />
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ResponseControl">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ResultCode" />
+				<xsd:element ref="ServiceTime" />
+				<xsd:element ref="DWLControl" minOccurs="0" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ServiceTime" type="xsd:string" />
+	<xsd:element name="RequestType" type="xsd:string" />
+	<xsd:element name="TxResult">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ResultCode" />
+				<xsd:element ref="DWLError" minOccurs="0" maxOccurs="unbounded" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ResultCode" type="xsd:string" />
+	<xsd:element name="processingFault" type="processingFault" />
+	<xsd:complexType name="processingFault">
+		<xsd:sequence>
+			<xsd:element ref="ResponseControl" />
+			<xsd:element ref="RequestType" />
+			<xsd:element ref="TxResult" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="DWLControl">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="requesterName" />
+				<xsd:element ref="requesterLanguage" minOccurs="0" />
+				<xsd:element ref="requesterLocale" minOccurs="0" />
+				<xsd:element ref="clientSystemName" minOccurs="0" />
+				<xsd:element ref="sessionId" minOccurs="0" />
+				<xsd:element ref="requestOrigin" minOccurs="0" />
+				<xsd:element ref="pageStartIndex" minOccurs="0" />
+				<xsd:element ref="pageEndIndex" minOccurs="0" />
+				<xsd:element ref="returnAvailableResultCount" minOccurs="0" />
+				<xsd:element ref="availableResultsCount" minOccurs="0" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="requesterName" type="xsd:string" />
+	<xsd:element name="requesterLanguage" type="xsd:integer" />
+	<xsd:element name="requesterLocale" type="xsd:string" />
+	<xsd:element name="clientSystemName" type="xsd:string" />
+	<xsd:element name="sessionId" type="xsd:string" />
+	<xsd:element name="requestOrigin" type="xsd:string" />
+	<xsd:element name="pageStartIndex" type="xsd:integer" />
+	<xsd:element name="pageEndIndex" type="xsd:integer" />
+	<xsd:element name="returnAvailableResultCount" type="xsd:string" />
+	<xsd:element name="availableResultsCount" type="xsd:string" />
+	<xsd:element name="DWLError">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ComponentType" minOccurs="0" />
+				<xsd:element ref="ErrorMessage" minOccurs="0" />
+				<xsd:element ref="ErrorType" minOccurs="0" />
+				<xsd:element ref="LanguageCode" minOccurs="0" />
+				<xsd:element ref="ReasonCode" minOccurs="0" />
+				<xsd:element ref="Severity" minOccurs="0" />
+				<xsd:element ref="Throwable" minOccurs="0" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ComponentType" type="xsd:integer" />
+	<xsd:element name="ErrorMessage" type="xsd:string" />
+	<xsd:element name="ErrorType" type="xsd:string" />
+	<xsd:element name="LanguageCode" type="xsd:integer" />
+	<xsd:element name="ReasonCode" type="xsd:integer" />
+	<xsd:element name="Severity" type="xsd:integer" />
+	<xsd:element name="Throwable" type="xsd:string" />
+	<xsd:element name="configResponse" type="configOutputType" />
+	<xsd:element name="switchList" type="switchListType" />
+	<xsd:element name="updateConfig" type="updateConfigInputType" />
+	<xsd:complexType name="configOutputType">
+		<xsd:sequence>
+			<xsd:element ref="status" minOccurs="0" />
+			<xsd:element ref="errorMsg" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="status" type="xsd:string" />
+	<xsd:element name="errorMsg" type="xsd:string" />
+	<xsd:complexType name="switchListType">
+		<xsd:sequence>
+			<xsd:element ref="CIEendpoint" minOccurs="0" />
+			<xsd:element ref="CIEHisendpoint" minOccurs="0" />
+			<xsd:element ref="Partyendpoint" minOccurs="0" />
+			<xsd:element ref="Prospectendpoint" minOccurs="0" />
+			<xsd:element ref="Txnendpoint" minOccurs="0" />
+			<xsd:element ref="TxnHisendpoint" minOccurs="0" />
+			<xsd:element ref="MDMCMPendpoint" minOccurs="0" />
+			<xsd:element ref="SearchWMendpoint" minOccurs="0" />
+			<xsd:element ref="IMDGDirectDB" minOccurs="0" />
+			<xsd:element minOccurs="0" ref="SubByAccDirectDB" />
+			<xsd:element minOccurs="0" ref="CustByAccDirectDB" />
+			<xsd:element minOccurs="0" ref="SubByRocDirectDB" />
+			<xsd:element minOccurs="0" ref="AccByRocDirectDB" />
+			<xsd:element minOccurs="0" ref="DataBase" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="CIEendpoint" type="xsd:string" />
+	<xsd:element name="CIEHisendpoint" type="xsd:string" />
+	<xsd:element name="IMDGDirectDB" type="xsd:string" />
+	<xsd:element name="SubByAccDirectDB" type="xsd:string" />
+	<xsd:element name="CustByAccDirectDB" type="xsd:string" />
+	<xsd:element name="SubByRocDirectDB" type="xsd:string" />
+	<xsd:element name="AccByRocDirectDB" type="xsd:string" />
+	<xsd:element name="MDMCMPendpoint" type="xsd:string" />
+	<xsd:element name="Partyendpoint" type="xsd:string" />
+	<xsd:element name="Prospectendpoint" type="xsd:string" />
+	<xsd:element name="SearchWMendpoint" type="xsd:string" />
+	<xsd:element name="Txnendpoint" type="xsd:string" />
+	<xsd:element name="TxnHisendpoint" type="xsd:string" />
+	<xsd:element name="DataBase" type="DataBaseType" />
+	<xsd:complexType name="updateConfigInputType">
+		<xsd:sequence>
+			<xsd:element ref="switch" minOccurs="0" />
+			<xsd:element ref="retryConfig" minOccurs="0" />
+			<xsd:element ref="contactItem" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="switch" type="xsd:boolean" />
+	<xsd:element name="retryConfig" type="xsd:boolean" />
+	<xsd:element name="contactItem" type="xsd:boolean" />
+	<xsd:complexType name="DataBaseType">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" ref="CIEDB" />
+			<xsd:element minOccurs="0" ref="TxnDB" />
+			<xsd:element minOccurs="0" ref="IMDGDB" />
+			<xsd:element minOccurs="0" ref="ResourceLogDB" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="CIEDB" type="xsd:boolean" />
+	<xsd:element name="TxnDB" type="xsd:boolean" />
+	<xsd:element name="IMDGDB" type="xsd:boolean" />
+	<xsd:element name="ResourceLogDB" type="xsd:boolean" />
+</xsd:schema>

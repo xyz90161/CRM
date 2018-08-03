@@ -1,0 +1,880 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by TIBCO WSDL -->
+<wsdl:definitions xmlns:schema="http://services.mdm.cs.com/party/schema"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://services.mdm.cs.com/Partyservice/port"
+	xmlns:common="http://services.mdm.cs.com/wsdl/schema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	name="MDMCSPartyService" targetNamespace="http://services.mdm.cs.com/Partyservice/port">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified"
+			elementFormDefault="qualified" targetNamespace="http://services.mdm.cs.com/Partyservice/port">
+			<xsd:import namespace="http://services.mdm.cs.com/wsdl/schema" schemaLocation="MDMCSServiceCommon.xsd" />
+			<xsd:import namespace="http://services.mdm.cs.com/party/schema" schemaLocation="MDMCSPartyServices.xsd" />
+			<xsd:element name="getSubscriberIdByRocId" type="tns:getSubscriberIdByRocIdRequestType" />
+			<xsd:element name="getSubscriberIdByRocIdResponse" type="tns:getSubscriberIdByRocIdResponseType" />
+			<xsd:element name="getCustomerSubscriberIdByAccountId" type="tns:getCustomerSubscriberIdByAccountIdRequestType" />
+			<xsd:element name="getCustomerSubscriberIdByAccountIdResponse" type="tns:getCustomerSubscriberIdByAccountIdResponseType" />
+			<xsd:element name="getSubscriberIdByAccountId" type="tns:getSubscriberIdByAccountIdRequestType" />
+			<xsd:element name="getSubscriberIdByAccountIdResponse" type="tns:getSubscriberIdByAccountIdResponseType" />
+			<xsd:element name="getResourceValueLog" type="tns:getResourceValueLogRequestType" />
+			<xsd:element name="getResourceValueLogResponse" type="tns:getResourceValueLogResponseType" />
+			<xsd:element name="getContractByAccountIdOrSubscriberId" type="tns:getContractByAccountIdOrSubscriberIdRequestType" />
+			<xsd:element name="getContractByAccountIdOrSubscriberIdResponse" type="tns:getContractByAccountIdOrSubscriberIdResponseType" />
+			<xsd:element name="getSubscriberDetailByMSISDN" type="tns:getSubscriberDetailByMSISDNRequestType" />
+			<xsd:element name="getSubscriberDetailByMSISDNResponse" type="tns:getSubscriberDetailByMSISDNResponseType" />
+			<xsd:element name="getContractComponentInfoByAdminNativeKey" type="tns:getContractComponentInfoByAdminNativeKeyRequestType" />
+			<xsd:element name="getContractComponentInfoByAdminNativeKeyResponse" type="tns:getContractComponentInfoByAdminNativeKeyResponseType" />
+			<xsd:element name="getIdentifierInfoByRefNum" type="tns:getIdentifierInfoByRefNumRequestType" />
+			<xsd:element name="getIdentifierInfoByRefNumResponse" type="tns:getIdentifierInfoByRefNumResponseType" />
+			<xsd:element name="getScvBestRateInfoBySubscriber" type="tns:getScvBestRateInfoBySubscriberRequestType" />
+			<xsd:element name="getScvBestRateInfoBySubscriberResponse" type="tns:getScvBestRateInfoBySubscriberResponseType" />
+			<xsd:element name="getVIPGradeChangeLogByAccRefNum" type="tns:getVIPGradeChangeLogByAccRefNumRequestType" />
+			<xsd:element name="getVIPGradeChangeLogByAccRefNumResponse" type="tns:getVIPGradeChangeLogByAccRefNumResponseType" />
+			<xsd:element name="getCustomerContract" type="tns:getCustomerContractRequestType" />
+			<xsd:element name="getCustomerContractResponse" type="tns:getCustomerContractResponseType" />
+			<xsd:element name="getFETCodeTableByName" type="tns:getFETCodeTableByNameRequestType" />
+			<xsd:element name="getFETCodeTableByNameResponse" type="tns:getFETCodeTableByNameResponseType" />
+			<xsd:element name="getAllPartyChargeCards" type="tns:getAllPartyChargeCardsRequestType" />
+			<xsd:element name="getAllPartyChargeCardsResponse" type="tns:getAllPartyChargeCardsResponseType" />
+			<xsd:element name="getAllSubscriberByAccountId" type="tns:getAllSubscriberByAccountIdRequestType" />
+			<xsd:element name="getAllSubscriberByAccountIdResponse" type="tns:getAllSubscriberByAccountIdResponseType" />
+			<xsd:element name="searchPersonByIVRCode" type="tns:searchPersonByIVRCodeRequestType"/>
+			<xsd:element name="searchPersonByIVRCodeResponse" type="tns:searchPersonByIVRCodeResponseType"/>
+			<xsd:element name="addPerson" type="tns:addPersonRequestType"/>
+			<xsd:element name="addPersonResponse" type="tns:addPersonResponseType"/>
+			<xsd:element name="getAllAccountProfileByROCID" type="tns:getAllAccountProfileByROCIDRequestType" />
+			<xsd:element name="getAllAccountProfileByROCIDResponse" type="tns:getAllAccountProfileByROCIDResponseType" />
+			<xsd:element name="searchPerson" type="tns:searchPersonRequestType"/>
+			<xsd:element name="searchPersonResponse" type="tns:searchPersonResponseType"/>
+			<xsd:element name="getAllContractRoleProfileByROCID" type="tns:getAllContractRoleProfileByROCIDRequestType" />
+			<xsd:element name="getAllContractRoleProfileByROCIDResponse" type="tns:getAllContractRoleProfileByROCIDResponseType" />
+			<xsd:element name="chgCntrCompByChairman" type="tns:chgCntrCompByChairmanRequestType" />
+			<xsd:element name="chgCntrCompByChairmanResponse" type="tns:chgCntrCompByChairmanResponseType" />
+			<xsd:complexType name="getSubscriberIdByRocIdRequestType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:authInfo" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:transInfo" />
+					<xsd:element maxOccurs="1" minOccurs="0" ref="schema:PagingParamBObj" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:InquiryParam" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getSubscriberIdByRocIdResponseType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:ResponseControl" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:TxResult" />
+					<xsd:element maxOccurs="1" minOccurs="0" ref="schema:ResourceInfo" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getCustomerSubscriberIdByAccountIdRequestType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:authInfo" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:transInfo" />
+					<xsd:element maxOccurs="1" minOccurs="0" ref="schema:PagingParamBObj" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:InquiryParam" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getCustomerSubscriberIdByAccountIdResponseType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:ResponseControl" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:TxResult" />
+					<xsd:element maxOccurs="1" minOccurs="0" ref="schema:ResourceInfo" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getSubscriberIdByAccountIdRequestType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:authInfo" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:transInfo" />
+					<xsd:element maxOccurs="1" minOccurs="0" ref="schema:PagingParamBObj" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:InquiryParam" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getSubscriberIdByAccountIdResponseType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:ResponseControl" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:TxResult" />
+					<xsd:element maxOccurs="1" minOccurs="0" ref="schema:ResourceInfo" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getResourceValueLogRequestType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:authInfo" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:transInfo" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:InquiryParam" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getResourceValueLogResponseType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:ResponseControl" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:TxResult" />
+					<xsd:element maxOccurs="1" minOccurs="0" ref="schema:ResourceValueLog" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getContractByAccountIdOrSubscriberIdRequestType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:authInfo" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:transInfo" />
+					<xsd:element maxOccurs="1" minOccurs="0" ref="schema:DWLControl" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:InquiryParam" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getContractByAccountIdOrSubscriberIdResponseType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:ResponseControl" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:TxResult" />
+					<xsd:element maxOccurs="unbounded" minOccurs="0" ref="schema:TCRMContractBObj" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getSubscriberDetailByMSISDNRequestType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:authInfo" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:transInfo" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:InquiryParam" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getSubscriberDetailByMSISDNResponseType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:ResponseControl" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:TxResult" />
+					<xsd:element maxOccurs="1" minOccurs="0" ref="schema:TCRMContractComponentBObj" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getContractComponentInfoByAdminNativeKeyRequestType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:authInfo" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:transInfo" />
+					<xsd:element maxOccurs="1" minOccurs="0" ref="schema:DWLControl" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:InquiryParam" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getContractComponentInfoByAdminNativeKeyResponseType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:ResponseControl" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:TxResult" />
+					<xsd:element maxOccurs="1" minOccurs="0" ref="schema:ContractComponentInfoBObj" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getIdentifierInfoByRefNumRequestType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:authInfo" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:transInfo" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:InquiryParam" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getIdentifierInfoByRefNumResponseType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:ResponseControl" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:TxResult" />
+					<xsd:element maxOccurs="1" minOccurs="0" ref="schema:IdentifierInfoBObj" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getScvBestRateInfoBySubscriberRequestType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:authInfo" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:transInfo" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:InquiryParam" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getScvBestRateInfoBySubscriberResponseType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:ResponseControl" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:TxResult" />
+					<xsd:element maxOccurs="unbounded" minOccurs="0" ref="schema:ScvBestRateInfoBObj" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getVIPGradeChangeLogByAccRefNumRequestType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:authInfo" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:transInfo" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:InquiryParam" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getVIPGradeChangeLogByAccRefNumResponseType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:ResponseControl" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:TxResult" />
+					<xsd:element maxOccurs="unbounded" minOccurs="0" ref="schema:ContrcompInfoSVIPLogBObj" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getCustomerContractRequestType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:authInfo" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:transInfo" />
+					<xsd:element maxOccurs="1" minOccurs="0" ref="schema:DWLControl" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:InquiryParam" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getCustomerContractResponseType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:ResponseControl" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:TxResult" />
+					<xsd:element maxOccurs="1" minOccurs="0" ref="schema:TCRMContractBObj" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getFETCodeTableByNameRequestType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:authInfo" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:transInfo" />
+					<xsd:element maxOccurs="1" minOccurs="0" ref="schema:DWLControl" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:InquiryParam" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getFETCodeTableByNameResponseType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:ResponseControl" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:TxResult" />
+					<xsd:element maxOccurs="unbounded" minOccurs="0" ref="schema:FETCodeTableBObj" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getAllPartyChargeCardsRequestType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:authInfo" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:transInfo" />
+					<xsd:element maxOccurs="1" minOccurs="0" ref="schema:DWLControl" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:InquiryParam" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getAllPartyChargeCardsResponseType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:ResponseControl" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:TxResult" />
+					<xsd:element maxOccurs="unbounded" minOccurs="0" ref="schema:TCRMPartyChargeCardBObj" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getAllSubscriberByAccountIdRequestType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:authInfo" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:transInfo" />
+					<xsd:element maxOccurs="1" minOccurs="0" ref="schema:DWLControl" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:InquiryParam" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getAllSubscriberByAccountIdResponseType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:ResponseControl" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:TxResult" />
+					<xsd:element maxOccurs="unbounded" minOccurs="0" ref="schema:TCRMContractComponentBObj" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="searchPersonByIVRCodeRequestType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:authInfo"/>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:transInfo"/>
+					<xsd:element maxOccurs="1" minOccurs="0" ref="schema:DWLControl"/>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="schema:TCRMPersonSearchBObj"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="searchPersonByIVRCodeResponseType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:ResponseControl"/>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:TxResult"/>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" ref="schema:TCRMPersonSearchResultBObj"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="addPersonRequestType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:authInfo"/>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:transInfo"/>
+					<xsd:element maxOccurs="1" minOccurs="0" ref="schema:DWLControl"/>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="schema:TCRMPersonBObj"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="addPersonResponseType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:ResponseControl"/>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:TxResult"/>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" ref="schema:TCRMPersonBObj"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getAllAccountProfileByROCIDRequestType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:authInfo" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:transInfo" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="schema:DWLControl" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:InquiryParam" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getAllAccountProfileByROCIDResponseType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:ResponseControl" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:TxResult" />
+					<xsd:element maxOccurs="unbounded" minOccurs="0" ref="schema:TCRMContractBObj" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="searchPersonRequestType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:authInfo"/>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:transInfo"/>
+					<xsd:element maxOccurs="1" minOccurs="0" ref="schema:DWLControl"/>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="schema:TCRMPersonSearchBObj"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="searchPersonResponseType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:ResponseControl"/>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:TxResult"/>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" ref="schema:TCRMPersonSearchResultBObj"/>
+				</xsd:sequence>
+			</xsd:complexType>
+                           <xsd:complexType name="getAllContractRoleProfileByROCIDRequestType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:authInfo" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:transInfo" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="schema:DWLControl" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:InquiryParam" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getAllContractRoleProfileByROCIDResponseType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:ResponseControl" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:TxResult" />
+					<xsd:element maxOccurs="unbounded" minOccurs="0" ref="schema:TCRMContractComponentBObj" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="processingFault" type="common:processingFault" />
+			<xsd:element name="configResponse">
+				<xsd:complexType>
+					<xsd:all>
+						<xsd:element ref="common:configResponse" />
+					</xsd:all>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="updateConfig">
+				<xsd:complexType>
+					<xsd:all>
+						<xsd:element ref="common:updateConfig" />
+					</xsd:all>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="switchList">
+				<xsd:complexType>
+					<xsd:all>
+						<xsd:element ref="common:switchList" />
+					</xsd:all>
+				</xsd:complexType>
+			</xsd:element>
+                           <xsd:complexType name="chgCntrCompByChairmanRequestType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:authInfo" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:transInfo" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="schema:DWLControl" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="schema:TCRMContractComponentBObj" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="chgCntrCompByChairmanResponseType">
+				<xsd:sequence>
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:ResponseControl" />
+					<xsd:element maxOccurs="1" minOccurs="1" ref="common:TxResult" />
+					<xsd:element maxOccurs="unbounded" minOccurs="0" ref="schema:TCRMContractComponentBObj" />
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="getSubscriberIdByRocIdRequest">
+		<wsdl:part element="tns:getSubscriberIdByRocId" name="input" />
+	</wsdl:message>
+	<wsdl:message name="getSubscriberIdByRocIdResponse">
+		<wsdl:part element="tns:getSubscriberIdByRocIdResponse" name="output" />
+	</wsdl:message>
+	<wsdl:message name="getCustomerSubscriberIdByAccountIdRequest">
+		<wsdl:part element="tns:getCustomerSubscriberIdByAccountId" name="input" />
+	</wsdl:message>
+	<wsdl:message name="getCustomerSubscriberIdByAccountIdResponse">
+		<wsdl:part element="tns:getCustomerSubscriberIdByAccountIdResponse" name="output" />
+	</wsdl:message>
+	<wsdl:message name="getSubscriberIdByAccountIdRequest">
+		<wsdl:part element="tns:getSubscriberIdByAccountId" name="input" />
+	</wsdl:message>
+	<wsdl:message name="getSubscriberIdByAccountIdResponse">
+		<wsdl:part element="tns:getSubscriberIdByAccountIdResponse" name="output" />
+	</wsdl:message>
+	<wsdl:message name="getResourceValueLogRequest">
+		<wsdl:part element="tns:getResourceValueLog" name="input" />
+	</wsdl:message>
+	<wsdl:message name="getResourceValueLogResponse">
+		<wsdl:part element="tns:getResourceValueLogResponse" name="output" />
+	</wsdl:message>
+	<wsdl:message name="getContractByAccountIdOrSubscriberIdRequest">
+		<wsdl:part element="tns:getContractByAccountIdOrSubscriberId" name="input" />
+	</wsdl:message>
+	<wsdl:message name="getContractByAccountIdOrSubscriberIdResponse">
+		<wsdl:part element="tns:getContractByAccountIdOrSubscriberIdResponse" name="output" />
+	</wsdl:message>
+	<wsdl:message name="getContractComponentInfoByAdminNativeKeyRequest">
+		<wsdl:part element="tns:getContractComponentInfoByAdminNativeKey" name="input" />
+	</wsdl:message>
+	<wsdl:message name="getContractComponentInfoByAdminNativeKeyResponse">
+		<wsdl:part element="tns:getContractComponentInfoByAdminNativeKeyResponse" name="output" />
+	</wsdl:message>
+	<wsdl:message name="getSubscriberDetailByMSISDNRequest">
+		<wsdl:part element="tns:getSubscriberDetailByMSISDN" name="input" />
+	</wsdl:message>
+	<wsdl:message name="getSubscriberDetailByMSISDNResponse">
+		<wsdl:part element="tns:getSubscriberDetailByMSISDNResponse" name="output" />
+	</wsdl:message>
+	<wsdl:message name="getIdentifierInfoByRefNumRequest">
+		<wsdl:part element="tns:getIdentifierInfoByRefNum" name="input" />
+	</wsdl:message>
+	<wsdl:message name="getIdentifierInfoByRefNumResponse">
+		<wsdl:part element="tns:getIdentifierInfoByRefNumResponse" name="output" />
+	</wsdl:message>
+	<wsdl:message name="getScvBestRateInfoBySubscriberRequest">
+		<wsdl:part element="tns:getScvBestRateInfoBySubscriber" name="input" />
+	</wsdl:message>
+	<wsdl:message name="getScvBestRateInfoBySubscriberResponse">
+		<wsdl:part element="tns:getScvBestRateInfoBySubscriberResponse" name="output" />
+	</wsdl:message>
+	<wsdl:message name="getVIPGradeChangeLogByAccRefNumRequest">
+		<wsdl:part element="tns:getVIPGradeChangeLogByAccRefNum" name="input" />
+	</wsdl:message>
+	<wsdl:message name="getVIPGradeChangeLogByAccRefNumResponse">
+		<wsdl:part element="tns:getVIPGradeChangeLogByAccRefNumResponse" name="output" />
+	</wsdl:message>
+	<wsdl:message name="getCustomerContractRequest">
+		<wsdl:part element="tns:getCustomerContract" name="input" />
+	</wsdl:message>
+	<wsdl:message name="getCustomerContractResponse">
+		<wsdl:part element="tns:getCustomerContractResponse" name="output" />
+	</wsdl:message>
+	<wsdl:message name="getFETCodeTableByNameRequest">
+		<wsdl:part element="tns:getFETCodeTableByName" name="input" />
+	</wsdl:message>
+	<wsdl:message name="getFETCodeTableByNameResponse">
+		<wsdl:part element="tns:getFETCodeTableByNameResponse" name="output" />
+	</wsdl:message>
+	<wsdl:message name="getAllPartyChargeCardsRequest">
+		<wsdl:part element="tns:getAllPartyChargeCards" name="input" />
+	</wsdl:message>
+	<wsdl:message name="getAllPartyChargeCardsResponse">
+		<wsdl:part element="tns:getAllPartyChargeCardsResponse" name="output" />
+	</wsdl:message>
+	<wsdl:message name="getAllSubscriberByAccountIdRequest">
+		<wsdl:part element="tns:getAllSubscriberByAccountId" name="input" />
+	</wsdl:message>
+	<wsdl:message name="getAllSubscriberByAccountIdResponse">
+		<wsdl:part element="tns:getAllSubscriberByAccountIdResponse" name="output" />
+	</wsdl:message>
+	<wsdl:message name="searchPersonByIVRCodeRequest">
+		<wsdl:part element="tns:searchPersonByIVRCode" name="input"/>
+	</wsdl:message>
+	<wsdl:message name="searchPersonByIVRCodeResponse">
+		<wsdl:part element="tns:searchPersonByIVRCodeResponse" name="output"/>
+	</wsdl:message>
+	<wsdl:message name="addPersonRequest">
+		<wsdl:part element="tns:addPerson" name="input"/>
+	</wsdl:message>
+	<wsdl:message name="addPersonResponse">
+		<wsdl:part element="tns:addPersonResponse" name="output"/>
+	</wsdl:message>
+	<wsdl:message name="getAllAccountProfileByROCIDRequest">
+		<wsdl:part element="tns:getAllAccountProfileByROCID" name="input" />
+	</wsdl:message>
+	<wsdl:message name="getAllAccountProfileByROCIDResponse">
+		<wsdl:part element="tns:getAllAccountProfileByROCIDResponse" name="output" />
+	</wsdl:message>
+	<wsdl:message name="searchPersonRequest">
+		<wsdl:part element="tns:searchPerson" name="input"/>
+	</wsdl:message>
+	<wsdl:message name="searchPersonResponse">
+		<wsdl:part element="tns:searchPersonResponse" name="output"/>
+	</wsdl:message>
+	<wsdl:message name="getAllContractRoleProfileByROCIDRequest">
+		<wsdl:part element="tns:getAllContractRoleProfileByROCID" name="input" />
+	</wsdl:message>
+	<wsdl:message name="getAllContractRoleProfileByROCIDResponse">
+		<wsdl:part element="tns:getAllContractRoleProfileByROCIDResponse" name="output" />
+	</wsdl:message>
+	<wsdl:message name="ProcessingFault">
+		<wsdl:part element="tns:processingFault" name="ProcessingFault" />
+	</wsdl:message>
+	<wsdl:message name="configResponse">
+		<wsdl:part element="tns:configResponse" name="output" />
+	</wsdl:message>
+	<wsdl:message name="updateConfig">
+		<wsdl:part element="tns:updateConfig" name="input" />
+	</wsdl:message>
+	<wsdl:message name="getSwtivhList" />
+	<wsdl:message name="getSwtivhListResponse">
+		<wsdl:part element="tns:switchList" name="output" />
+	</wsdl:message>
+	<wsdl:message name="chgCntrCompByChairmanRequest">
+		<wsdl:part element="tns:chgCntrCompByChairman" name="input" />
+	</wsdl:message>
+	<wsdl:message name="chgCntrCompByChairmanResponse">
+		<wsdl:part element="tns:chgCntrCompByChairmanResponse" name="output" />
+	</wsdl:message>
+	<wsdl:portType name="MDMCSPartyServicePortType">
+		<wsdl:operation name="getSubscriberIdByRocId">
+			<wsdl:input message="tns:getSubscriberIdByRocIdRequest" />
+			<wsdl:output message="tns:getSubscriberIdByRocIdResponse" />
+			<wsdl:fault message="tns:ProcessingFault" name="ProcessingFault" />
+		</wsdl:operation>
+		<wsdl:operation name="getCustomerSubscriberIdByAccountId">
+			<wsdl:input message="tns:getCustomerSubscriberIdByAccountIdRequest" />
+			<wsdl:output message="tns:getCustomerSubscriberIdByAccountIdResponse" />
+			<wsdl:fault message="tns:ProcessingFault" name="ProcessingFault" />
+		</wsdl:operation>
+		<wsdl:operation name="getSubscriberIdByAccountId">
+			<wsdl:input message="tns:getSubscriberIdByAccountIdRequest" />
+			<wsdl:output message="tns:getSubscriberIdByAccountIdResponse" />
+			<wsdl:fault message="tns:ProcessingFault" name="ProcessingFault" />
+		</wsdl:operation>
+		<wsdl:operation name="getResourceValueLog">
+			<wsdl:input message="tns:getResourceValueLogRequest" />
+			<wsdl:output message="tns:getResourceValueLogResponse" />
+			<wsdl:fault message="tns:ProcessingFault" name="ProcessingFault" />
+		</wsdl:operation>
+		<wsdl:operation name="getContractByAccountIdOrSubscriberId">
+			<wsdl:input message="tns:getContractByAccountIdOrSubscriberIdRequest" />
+			<wsdl:output message="tns:getContractByAccountIdOrSubscriberIdResponse" />
+			<wsdl:fault message="tns:ProcessingFault" name="ProcessingFault" />
+		</wsdl:operation>
+		<wsdl:operation name="getSubscriberDetailByMSISDN">
+			<wsdl:input message="tns:getSubscriberDetailByMSISDNRequest" />
+			<wsdl:output message="tns:getSubscriberDetailByMSISDNResponse" />
+			<wsdl:fault message="tns:ProcessingFault" name="ProcessingFault" />
+		</wsdl:operation>
+		<wsdl:operation name="getContractComponentInfoByAdminNativeKey">
+			<wsdl:input message="tns:getContractComponentInfoByAdminNativeKeyRequest" />
+			<wsdl:output message="tns:getContractComponentInfoByAdminNativeKeyResponse" />
+			<wsdl:fault message="tns:ProcessingFault" name="ProcessingFault" />
+		</wsdl:operation>
+		<wsdl:operation name="getIdentifierInfoByRefNum">
+			<wsdl:input message="tns:getIdentifierInfoByRefNumRequest" />
+			<wsdl:output message="tns:getIdentifierInfoByRefNumResponse" />
+			<wsdl:fault message="tns:ProcessingFault" name="ProcessingFault" />
+		</wsdl:operation>
+		<wsdl:operation name="getScvBestRateInfoBySubscriber">
+			<wsdl:input message="tns:getScvBestRateInfoBySubscriberRequest" />
+			<wsdl:output message="tns:getScvBestRateInfoBySubscriberResponse" />
+			<wsdl:fault message="tns:ProcessingFault" name="ProcessingFault" />
+		</wsdl:operation>
+		<wsdl:operation name="getVIPGradeChangeLogByAccRefNum">
+			<wsdl:input message="tns:getVIPGradeChangeLogByAccRefNumRequest" />
+			<wsdl:output message="tns:getVIPGradeChangeLogByAccRefNumResponse" />
+			<wsdl:fault message="tns:ProcessingFault" name="ProcessingFault" />
+		</wsdl:operation>
+		<wsdl:operation name="getCustomerContract">
+			<wsdl:input message="tns:getCustomerContractRequest" />
+			<wsdl:output message="tns:getCustomerContractResponse" />
+			<wsdl:fault message="tns:ProcessingFault" name="ProcessingFault" />
+		</wsdl:operation>
+		<wsdl:operation name="updateConfig">
+			<wsdl:input message="tns:updateConfig" />
+			<wsdl:output message="tns:configResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="getSwtivhList">
+			<wsdl:input message="tns:getSwtivhList" />
+			<wsdl:output message="tns:getSwtivhListResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="getFETCodeTableByName">
+			<wsdl:input message="tns:getFETCodeTableByNameRequest" />
+			<wsdl:output message="tns:getFETCodeTableByNameResponse" />
+			<wsdl:fault name="ProcessingFault" message="tns:ProcessingFault" />
+		</wsdl:operation>
+		<wsdl:operation name="getAllPartyChargeCards">
+			<wsdl:input message="tns:getAllPartyChargeCardsRequest" />
+			<wsdl:output message="tns:getAllPartyChargeCardsResponse" />
+			<wsdl:fault name="ProcessingFault" message="tns:ProcessingFault" />
+		</wsdl:operation>
+		<wsdl:operation name="getAllSubscriberByAccountId">
+			<wsdl:input message="tns:getAllSubscriberByAccountIdRequest" />
+			<wsdl:output message="tns:getAllSubscriberByAccountIdResponse" />
+			<wsdl:fault name="ProcessingFault" message="tns:ProcessingFault" />
+		</wsdl:operation>
+		<wsdl:operation name="searchPersonByIVRCode">
+			<wsdl:input message="tns:searchPersonByIVRCodeRequest"/>
+			<wsdl:output message="tns:searchPersonByIVRCodeResponse"/>
+			<wsdl:fault message="tns:ProcessingFault" name="ProcessingFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="addPerson">
+			<wsdl:input message="tns:addPersonRequest"/>
+			<wsdl:output message="tns:addPersonResponse"/>
+			<wsdl:fault message="tns:ProcessingFault" name="ProcessingFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="getAllAccountProfileByROCID">
+			<wsdl:input message="tns:getAllAccountProfileByROCIDRequest" />
+			<wsdl:output message="tns:getAllAccountProfileByROCIDResponse" />
+			<wsdl:fault message="tns:ProcessingFault" name="ProcessingFault" />
+		</wsdl:operation>
+		<wsdl:operation name="searchPerson">
+			<wsdl:input message="tns:searchPersonRequest"/>
+			<wsdl:output message="tns:searchPersonResponse"/>
+			<wsdl:fault message="tns:ProcessingFault" name="ProcessingFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="getAllContractRoleProfileByROCID">
+			<wsdl:input message="tns:getAllContractRoleProfileByROCIDRequest" />
+			<wsdl:output message="tns:getAllContractRoleProfileByROCIDResponse" />
+			<wsdl:fault message="tns:ProcessingFault" name="ProcessingFault" />
+		</wsdl:operation>
+		<wsdl:operation name="chgCntrCompByChairman">
+			<wsdl:input message="tns:chgCntrCompByChairmanRequest" />
+			<wsdl:output message="tns:chgCntrCompByChairmanResponse" />
+			<wsdl:fault message="tns:ProcessingFault" name="ProcessingFault" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="MDMCSPartyServicePortTypeEndpointHTTPBinding" type="tns:MDMCSPartyServicePortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="getSubscriberIdByRocId">
+			<soap:operation soapAction="getSubscriberIdByRocId" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="ProcessingFault">
+				<soap:fault name="ProcessingFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getCustomerSubscriberIdByAccountId">
+			<soap:operation soapAction="getCustomerSubscriberIdByAccountId" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="ProcessingFault">
+				<soap:fault name="ProcessingFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getSubscriberIdByAccountId">
+			<soap:operation soapAction="getSubscriberIdByAccountId" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="ProcessingFault">
+				<soap:fault name="ProcessingFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getResourceValueLog">
+			<soap:operation soapAction="getResourceValueLog" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="ProcessingFault">
+				<soap:fault name="ProcessingFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getContractByAccountIdOrSubscriberId">
+			<soap:operation soapAction="getContractByAccountIdOrSubscriberId" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="ProcessingFault">
+				<soap:fault name="ProcessingFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getSubscriberDetailByMSISDN">
+			<soap:operation soapAction="getSubscriberDetailByMSISDN" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="ProcessingFault">
+				<soap:fault name="ProcessingFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getContractComponentInfoByAdminNativeKey">
+			<soap:operation soapAction="getContractComponentInfoByAdminNativeKey" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="ProcessingFault">
+				<soap:fault name="ProcessingFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getIdentifierInfoByRefNum">
+			<soap:operation soapAction="getIdentifierInfoByRefNum" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="ProcessingFault">
+				<soap:fault name="ProcessingFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getScvBestRateInfoBySubscriber">
+			<soap:operation soapAction="getScvBestRateInfoBySubscriber" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="ProcessingFault">
+				<soap:fault name="ProcessingFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getVIPGradeChangeLogByAccRefNum">
+			<soap:operation soapAction="getVIPGradeChangeLogByAccRefNum" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="ProcessingFault">
+				<soap:fault name="ProcessingFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getCustomerContract">
+			<soap:operation soapAction="getCustomerContract" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="ProcessingFault">
+				<soap:fault name="ProcessingFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getFETCodeTableByName">
+			<soap:operation soapAction="getFETCodeTableByName" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="ProcessingFault">
+				<soap:fault name="ProcessingFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getAllPartyChargeCards">
+			<soap:operation soapAction="getAllPartyChargeCards" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="ProcessingFault">
+				<soap:fault name="ProcessingFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getAllSubscriberByAccountId">
+			<soap:operation soapAction="getAllSubscriberByAccountId" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="ProcessingFault">
+				<soap:fault name="ProcessingFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="searchPersonByIVRCode">
+			<soap:operation soapAction="searchPersonByIVRCode" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="ProcessingFault">
+				<soap:fault name="ProcessingFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="addPerson">
+			<soap:operation soapAction="addPerson" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="ProcessingFault">
+				<soap:fault name="ProcessingFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getAllAccountProfileByROCID">
+			<soap:operation soapAction="getAllAccountProfileByROCID" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="ProcessingFault">
+				<soap:fault name="ProcessingFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="searchPerson">
+			<soap:operation soapAction="searchPerson" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="ProcessingFault">
+				<soap:fault name="ProcessingFault" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getAllContractRoleProfileByROCID">
+			<soap:operation soapAction="getAllContractRoleProfileByROCID" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="ProcessingFault">
+				<soap:fault name="ProcessingFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getSwtivhList">
+			<soap:operation soapAction="getSwtivhList" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="updateConfig">
+			<soap:operation soapAction="updateConfig" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="chgCntrCompByChairman">
+			<soap:operation soapAction="chgCntrCompByChairman" style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="ProcessingFault">
+				<soap:fault name="ProcessingFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="MDMCSPartyService">
+		<wsdl:port binding="tns:MDMCSPartyServicePortTypeEndpointHTTPBinding" name="MDMCSPartyServicePortTypeEndpointHTTP">
+			<soap:address location="http://localhost:8085/MDMCSService/PartyService" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
